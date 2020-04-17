@@ -22,7 +22,10 @@ RUN apt-get -qq update &&\
         ca-certificates \
         clinfo \
         curl \
-        ocl-icd-libopencl1 &&\
+        ocl-icd-libopencl1 \
+        sudo \
+        apt-utils \
+        dialog 2>&1 &&\
     mkdir --parents /etc/OpenCL/vendors &&\
         ln --symbolic /usr/lib/x86_64-linux-gnu/libOpenCL.so.1 /usr/lib/x86_64-linux-gnu/libOpenCL.so &&\
         echo "libnvidia-opencl.so.1" > /etc/OpenCL/vendors/nvidia.icd &&\
