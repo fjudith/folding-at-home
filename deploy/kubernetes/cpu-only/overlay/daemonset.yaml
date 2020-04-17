@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: folding-at-home
+  namespace: folding-at-home
+  labels:
+    app: folding-at-home
+    component: client
+spec:
+  # replicas: 1
+  selector:
+    matchLabels:
+      app: folding-at-home
+  template:
+    metadata:
+      labels:
+        app: folding-at-home
+    spec:
+      containers:
+        - name: folding-at-home
+          image: docker.io/fjudith/folding-at-home:debian-slim
+          args: ["--user=florian_judith_k8s", "--team=242354", "--gpu=false", "--smp=true", "--power=full"]
+          resources:
+            limits:
+              memory: 200Mi
+            requests:
+              cpu: 100m
+              memory: 200Mi
+          ports:
+            - name: web
+              containerPort: 7396
+  
