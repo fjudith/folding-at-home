@@ -35,7 +35,7 @@ USER ${USERNAME}
 # Switch back to dialog for any ad-hoc use of apt-get
 ENV DEBIAN_FRONTEND=dialog
 
-EXPOSE 7396
+EXPOSE 36330
 
-ENTRYPOINT ["sudo", "FAHClient", "--web-allow=0/0:7396", "--allow=0/0:7396"]
+ENTRYPOINT ["sudo", "FAHClient", "--web-allow=0/0:7396", "--allow=0/0:36330"]
 CMD ["--user=Anonymous", "--team=0", "--gpu=false", "--smp=true", "--power=full"]

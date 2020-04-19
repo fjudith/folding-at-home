@@ -26,6 +26,7 @@ USER fah
 
 # Web viewer
 EXPOSE 7396
+EXPOSE 36330
 
-ENTRYPOINT ["./bin/FAHClient", "--web-allow=0/0:7396", "--allow=0/0:7396"]
+ENTRYPOINT ["./bin/FAHClient", "--web-allow=0/0:7396", "--allow=0/0:36330"]
 CMD ["--user=Anonymous", "--team=0", "--gpu=false", "--smp=true", "--power=full"]

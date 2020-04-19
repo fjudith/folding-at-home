@@ -44,9 +44,10 @@ RUN apt-get -qq update &&\
 
 # Web viewer
 EXPOSE 7396
+EXPOSE 36330
 
 WORKDIR /home/${USERNAME}
 USER ${USERNAME}
 
-ENTRYPOINT ["FAHClient", "--web-allow=0/0:7396", "--allow=0/0:7396"]
+ENTRYPOINT ["FAHClient", "--web-allow=0/0:7396", "--allow=0/0:36330"]
 CMD ["--user=Anonymous", "--team=0", "--power=full"]
