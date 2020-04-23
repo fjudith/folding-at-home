@@ -37,6 +37,7 @@ RUN apt-get -qq update &&\
     useradd -s /bin/bash --uid ${USERNAME_UID} --gid ${USERNAME_GID} -m ${USERNAME} && \
     echo ${USERNAME} ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/${USERNAME} && \
     chmod 0440 /etc/sudoers.d/${USERNAME} && \
+    chown ${USERNAME}:${USERNAME} /etc/fahclient/config.xml && \
     chmod 700 /home/${USERNAME}  &&\
     apt-get -qq remove --assume-yes curl &&\
         apt-get -qq autoremove --assume-yes &&\

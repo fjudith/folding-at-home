@@ -25,6 +25,7 @@ RUN apt-get update && \
     useradd -s /bin/bash --uid ${USERNAME_UID} --gid ${USERNAME_GID} -m ${USERNAME} && \
     echo ${USERNAME} ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/${USERNAME} && \
     chmod 0440 /etc/sudoers.d/${USERNAME} && \
+    chown ${USERNAME}:${USERNAME} /etc/fahclient/config.xml && \
     rm -f /tmp/fahclient.deb && \
     apt-get autoremove -y && \
     apt-get clean -y && \
